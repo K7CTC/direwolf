@@ -7,7 +7,7 @@
 ################################################################################
 
 #global variables
-VERSION="v20200211"
+VERSION="v1.0"
 TITLE="Dire Wolf Installer by K7CTC"
 BACKTITLE="Raspberry Pi Dire Wolf Sound Modem Setup Script $VERSION"
 CALLSIGN="N0CAL"
