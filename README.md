@@ -1,11 +1,12 @@
 # Dire Wolf Sound Modem Raspberry Pi Installation Script
 
-This script automates the process of getting the Dire Wolf sound modem up and running on a Raspberry Pi.  It will only work with the standard Raspbian Buster image (2020-02-05) but the plan is to make it work with the lite image as well (then probably drop support for the standard image).
+This script automates the process of getting the Dire Wolf sound modem up and running on a Raspberry Pi.  It will only work with the standard Raspbian Buster image (2020-02-05) but the plan is to make it work with the Raspbian Lite image as well.
 
 What it does:
 
+* accepts and validates an amateur callsign provided via command line argument
 * checks to make sure script has not been executed with root proveleges
-* obtains the user's amateur radio callsign (regex checks help to validate as a north american callsign)
+* prompts user for callsign (via whiptail) if not provided via command line argument
 * installs required packages (cmake libasound2-dev libudev-dev)
 * clones the [Dire Wolf github repository](https://github.com/wb2osz/direwolf) to /home/pi/git/wb2osz/direwolf
 * checks out the dev branch (currently v1.6 D)
@@ -27,7 +28,7 @@ What it does:
 
 ## Goals
 
-The goal is to build an easy to use installer and quasi configuration utility for the Dire Wolf sound modem on a Raspberry Pi.  Presently, the best way to get the amazing Dire Wolf sound modem to work on a Raspberry Pi is to build it from source code.  Additional steps are necessary to ensure the proper Debian package dependencies are installed prior to compilation.  Once Dire Wolf installation is complete, the configuration file must be properly edited before the application will operate.  This installation script sidesteps all of that by simply asking your callsign and then taking care of the rest.
+The goal is to build an easy to use installer/configuration utility for the Dire Wolf sound modem on a Raspberry Pi.  Presently, the best way to get the amazing Dire Wolf sound modem to work on a Raspberry Pi is to build it from source code.  Additional steps are necessary to ensure the proper Debian package dependencies are installed prior to compilation.  Once Dire Wolf installation is complete, the configuration file must be properly edited before the application will operate.  This installation script sidesteps all of that by simply asking your callsign and then taking care of the rest.
 
 This is just the first iteration of this script.  I would like to implement a more robust way of runing Dire Wolf as a service so as not to be dependent on the Raspbian GUI.  Ideally this will run equally well on Raspbian Lite.  I plan to implement a command line switch or possibly just script logic to to a standard install under Raspbian or a more streamlined install under Raspbian Lite.
 
@@ -91,7 +92,23 @@ From here you will want to navigate to the newly created local repository:
 cd git/k7ctc/direwolf
 ```
 
-And simply run the installation script:
+Now you can run install.sh in one of two ways.  The first (and preferable) option is to specify your callsign via command line argument.  The script will "validate" your input as a north americal callsign with or without SSID.
+
+Examples:
+
+```bash
+./install.sh W1AW
+```
+
+```bash
+./install.sh W1AW-6
+```
+
+```bash
+./install.sh W1AW-15
+```
+
+Alternatively you can simply run the installation script without the command line argument and subsequently be prompted to enter your callsign:
 
 ```bash
 ./install.sh
