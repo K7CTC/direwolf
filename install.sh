@@ -11,13 +11,37 @@ VERSION="v20200211 dev"
 TITLE="Dire Wolf Installer by K7CTC"
 BACKTITLE="Raspberry Pi Dire Wolf Sound Modem Setup Script $VERSION"
 CALLSIGN="N0CAL"
+REGEXCALL="^[A-Z]{1,2}[0-9]{1}[A-Z]{1,3}$"
+REGEXCALLSSIDLOWER="^[A-Z]{1,2}[0-9]{1}[A-Z]{1,3}[-]{1}[0-9]{1}$"
+REGEXCALLSSIDUPPER="^[A-Z]{1,2}[0-9]{1}[A-Z]{1,3}[-]{1}[1]{1}[0-5]{1}$"
 
-#lets check to see if the user provided their callsign at time of execution
+#process callsign command line argument (if number of arguments is equal to 1)
+if [ $# -eq 1 ]
+then
+    #store argument (assumed to be a callsign) in ARG
+    ARG=$1
+    #convert ARG to upper case and store in UNVALIDATEDCALLSIGN
+    UNVALIDATEDCALLSIGN=$(echo "$ARG" | tr '[:lower:]' '[:upper:]')
+    #check UNVALIDATEDCALLSIGN against regular expressions
+    if [[ $UNVALIDATEDCALLSIGN =~ $REGEXCALL || $UNVALIDATEDCALLSIGN =~ $REGEXCALLSSIDLOWER || $UNVALIDATEDCALLSIGN =~ $REGEXCALLSSIDUPPER ]]
+    then
+        #callsign is validated by moving it into the CALLSIGN variable
+        CALLSIGN=$UNVALIDATEDCALLSIGN
+    else
+        echo "You entered an invalid callsign and/or SSID, please try again."
+        echo "NOTE: This script will only recognize North American callsigns"
+        echo "and your SSID must be an integer between 0 and 15 per APRS"
+        echo "specifications."
+        echo
+        echo "EXAMPLES: W1AW or W1AW-6 or W1AW-15"
+        exit 1
+    fi
+fi
 
-#check to make sure user did not execute script as sudo
+#check to make sure user has not executed the script via sudo
 if [ "`whoami`" = "root" ]
 then
-    echo "This script cannot be run as root (aka: sudo).  Now exiting..."
+    echo "Script cannot be run as root. Try './install.sh'"
     exit 1
 fi
 
@@ -25,9 +49,9 @@ fi
 function whiptailCallsign {
     #local variables
     #regex to match typical north american callsign with or without SSID
-    local REGEXCALL="^[A-Z]{1,2}[0-9]{1}[A-Z]{1,3}$"
-    local REGEXCALLSSIDLOWER="^[A-Z]{1,2}[0-9]{1}[A-Z]{1,3}[-]{1}[0-9]{1}$"
-    local REGEXCALLSSIDUPPER="^[A-Z]{1,2}[0-9]{1}[A-Z]{1,3}[-]{1}[1]{1}[0-5]{1}$"
+    #local REGEXCALL="^[A-Z]{1,2}[0-9]{1}[A-Z]{1,3}$"
+    #local REGEXCALLSSIDLOWER="^[A-Z]{1,2}[0-9]{1}[A-Z]{1,3}[-]{1}[0-9]{1}$"
+    #local REGEXCALLSSIDUPPER="^[A-Z]{1,2}[0-9]{1}[A-Z]{1,3}[-]{1}[1]{1}[0-5]{1}$"
     local SUCCESS=null
     until [ $SUCCESS = "true" ]
     do
@@ -51,30 +75,32 @@ t will only recognize North American callsigns and your SSID must be an integer\
     done
 }
 
-#get user callsign
-whiptailCallsign
+#get user callsign if not provided via command line argument
+if [ $CALLSIGN = "N0CAL"]
+then
+    whiptailCallsign
+fi
+
+#clear terminal window
+clear
+echo "Dire Wolf Sound Modem Installation Script by Chris Clement (K7CTC) $VERSION"
+echo "---------------------------------------------------------------------------"
 
 echo
 echo
 echo "---------------"
-echo "Dire Wolf Sound Modem Setup Script $VERSION"
-echo "---------------"
-
-echo
-echo
-echo "---------------"
-echo "Installing required packages (cmake, libasound2-dev, libudev-dev, pulseaudio)..."
+echo "Installing required packages (cmake libasound2-dev libudev-dev)..."
 echo "---------------"
 sudo apt-get install -y cmake libasound2-dev libudev-dev
 
 echo
 echo
 echo "---------------"
-echo "Cloning Dire Wolf git repository to /home/pi/direwolf, please wait..."
+echo "Cloning Dire Wolf git repository to /home/pi/wb2osz/direwolf, please wait..."
 echo "---------------"
 cd /home/pi
-git clone https://github.com/wb2osz/direwolf
-cd /home/pi/direwolf
+git clone https://github.com/wb2osz/direwolf git/wb2osz/direwolf
+cd /home/pi/wb2osz/direwolf
 
 echo
 echo
@@ -129,7 +155,7 @@ echo >> /home/pi/direwolf.conf
 echo "#modem speed" >> /home/pi/direwolf.conf
 echo "MODEM 1200" >> /home/pi/direwolf.conf
 echo >> /home/pi/direwolf.conf
-echo "#PTT configuration (need to determine proper setting)" >> /home/pi/direwolf.conf
+echo "#PTT configuration" >> /home/pi/direwolf.conf
 echo "PTT /dev/ttyUSB0 RTS" >> /home/pi/direwolf.conf
 echo >> /home/pi/direwolf.conf
 echo "#fixbits (see Dire Wolf documentation)" >> /home/pi/direwolf.conf
@@ -154,7 +180,7 @@ cp /usr/local/share/applications/direwolf.desktop /home/pi/.config/autostart/dir
 echo
 echo
 echo "---------------"
-echo "Dire Wolf setup finished!"
+echo "Dire Wolf installation finished!"
 echo "---------------"
 echo "Dire Wolf installation is complete!  You should now see a Dire Wolf"
 echo "shortcut on your desktop and the application will load automatically"
