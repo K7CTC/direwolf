@@ -111,9 +111,39 @@ chmod +x ./piers_setup.sh
 
 Simply follow the instructions provided by the setup script.
 
+## Next Steps
+
+After connecting your USB to RS232 and USB Audio Adapter then rebooting your Pi, you will see Dire Wolf launch in a terminal window once the Pi desktop loads.  Congratulations, you now have a working copy of Dire Wolf running on your Pi.  There are a few additional items that you will want to address, or at least be aware of.
+
+### Official Dire Wolf Documentation
+
+To gain understanding on how this software functions I highly recommend that you read the official Dire Wolf documentation.  This documentation can be viewed [here](https://github.com/wb2osz/direwolf/tree/master/doc).
+
+### Dire Wolf Configuration File
+
+The installation script will create a basic configuration file on your behalf.  This file is located at /home/pi/direwolf.conf.  You can edit this file with your preferred text editor.  You may want to open it and look it over to gain a better understanding of what it does.  Please refer to the official Dire Wolf documentation to see what additional configuration options are available.
+
+### Adjusting Audio Levels
+
+This is one of those things that is going to be different for everyone.  Such is the case when dealing with AX.25 over analog FM.  You are likely going to need to adjust audio levels either (a) from your transceiver or (b) from your USB Audio Adapter or probably both.  Please refer to your owners manual for instructions on adjusting your rig audio levels.
+
+As far as the USB Audio Adapter on the Pi goes...  You can right click on the speaker icon located in the upper left of your screen.  Then, select your audio adapter (there should be only one).  This sets your USB Audio Adapter as the system default.  Once this has been completed, you will see the red "X" disappear from the speaker icon.  Again, right click on the speaker icon and you will notice a context menu revealing the device options.  Clicking this will bring up a basic mixer interface where you can adjust the audio levels as well as mute/unmute the input and output.
+
+## Operating System Dependencies
+
+The following Debian packages are required for proper compilation and operation of Dire Wolf.  The installation script will automatically download and install them as well as any related package dependencies.  They are listed here for reference.
+
+* cmake
+* libasound2-dev
+* libudev-dev
+
 ## Developed By
 
 * **Chris Clement (K7CTC)** - [https://qrz.com/db/K7CTC](https://qrz.com/db/K7CTC)
+
+## License
+
+This project is licensed under the MIT License - see [LICENSE.md](LICENSE.md) for details
 
 ## Todo
 
