@@ -92,7 +92,7 @@ From here you will want to navigate to the newly created local repository:
 cd git/k7ctc/direwolf
 ```
 
-Now you can run install.sh in one of two ways.  The first (and preferable) option is to specify your callsign via command line argument.  The script will "validate" your input as a north americal callsign with or without SSID.
+Now you can run install.sh in one of two ways.  The first (and preferable) option is to specify your callsign via command line argument.  The script will "validate" your input as a North American callsign with or without SSID.
 
 Examples:
 
@@ -165,6 +165,6 @@ This project is licensed under the MIT License - see [LICENSE.md](LICENSE.md) fo
 ## Todo
 
 * add command line argument to specify graphical (Raspbian) or non-graphical (Raspbian Lite) installation.
-* add optional command line argument to pass amateur callsign into the script, thus making it a non-interactive install.
+* ~~add optional command line argument to pass amateur callsign into the script, thus making it a non-interactive install.~~
 * figure out how to configure Dire Wolf to run automatically at boot as a background service.
 * preferably one that can be monitored and restarted if, let's say, it crashes.
