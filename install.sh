@@ -1,16 +1,18 @@
 #!/bin/bash
 
 ################################################################################
-#       TITLE: Dire Wolf Sound Modem Setup Script                              #
+#       TITLE: Dire Wolf Sound Modem Installation Script                       #
 #   DEVELOPER: Chris Clement (K7CTC)                                           #
 # DESCRIPTION: Configures a Raspberry Pi for use with Dire Wolf.               #
 ################################################################################
 
 #global variables
-VERSION="v20200207 dev"
-TITLE="Direwolf Setup by K7CTC"
+VERSION="v20200211 dev"
+TITLE="Dire Wolf Installer by K7CTC"
 BACKTITLE="Raspberry Pi Dire Wolf Sound Modem Setup Script $VERSION"
 CALLSIGN="N0CAL"
+
+#lets check to see if the user provided their callsign at time of execution
 
 #check to make sure user did not execute script as sudo
 if [ "`whoami`" = "root" ]

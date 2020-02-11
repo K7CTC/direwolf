@@ -51,13 +51,30 @@ You will of course need a Raspberry Pi.  Additionally, you will need a micro SD 
 
 * Connect your Pi to a wired or wireless network.
 * Complete the Welcome to Raspberry Pi wizzard (uncluding installation of available updates).
-* Disable the on-board audio chip:
-  * sudo nano /boot/config.txt
-  * change line: dtparam=audio=on to dtparam=audio=off
-  * ctrl+o then enter (to save file)
-  * crtl+x (to exit the nano editor)
-  * shutdown now
-  * power cycle the Pi
+* Disable the on-board audio chip.
+* Shutdown and power cycle the Pi.
+
+### Disable On-Board Audio
+
+To disable the on-board audio you will need to edit the boot configutation.  This file is located at /boot/config.txt and essentially functions like the BIOS interface of a normal desktop computer.  This file is read at boot and configures the Pi hardware accordingly.  Disabling the on-board audio is as simple as launching a terminal window and entering the following command:
+
+```bash
+sudo nano /boot/config.txt
+```
+
+This will open the config.txt file in the nano text editor.  From here, scroll to near the bottom of the file and locate this line:
+
+```nano
+dtparam=audio=on
+```
+
+Then, modify this line to read...
+
+```nano
+dtparam=audio=off
+```
+
+To save and exit you will first press CTRL+O then ENTER (this saves the file), then press CTRL-X to exit.  Next, you will need to shutdown and power cycle the pi.  When the Pi boots back up you will notice the speaker icon in the menu bar now has an "X" over it.
 
 ## Installation
 
@@ -80,7 +97,23 @@ And simply run the installation script:
 ./install.sh
 ```
 
-Follow the instructions provided by the setup script.
+If direwolf-setup.sh refuses to execute, you may need to modify the file permissions to allow for execution.  This is accomplished using the [chmod](https://en.wikipedia.org/wiki/Chmod) with either of the following commands:
+
+```bash
+chmod 755 ./piers_setup.sh
+```
+
+or
+
+```bash
+chmod +x ./piers_setup.sh
+```
+
+Simply follow the instructions provided by the setup script.
+
+## Developed By
+
+* **Chris Clement (K7CTC)** - [https://qrz.com/db/K7CTC](https://qrz.com/db/K7CTC)
 
 ## Todo
 
