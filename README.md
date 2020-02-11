@@ -13,16 +13,22 @@ What it does:
 * checks out the stable branch (currently v1.5)
 * installs Raspberry Pi specific files
 * writes out a basic configuration file
-  *assumes one sound interface exists and defaults to it (external usb audio adapter)
-  *sets number of audio channels equal to 1
-  *specifies settings for channel 0 (channels start at 0)
-  *sets the station callsign as provided
-  *establishes modem baud rate of 1200
-  *assumes a PTT configuration of: /dev/ttyUSB0 RTS
-  *sets the FIX_BITS value equal to 1 (see Dire Wolf documentation)
-  *establishes an AGWPE TCPIP socket interface on port 9292
-  *establishes a KISS protocol over TCPIP socket interface on port 7373
+  -assumes one sound interface exists and defaults to it (external usb audio adapter)
+  -sets number of audio channels equal to 1
+  -specifies settings for channel 0 (channels start at 0)
+  -sets the station callsign as provided
+  -establishes modem baud rate of 1200
+  -assumes a PTT configuration of: /dev/ttyUSB0 RTS
+  -sets the FIX_BITS value equal to 1 (see Dire Wolf documentation)
+  -establishes an AGWPE TCPIP socket interface on port 9292
+  -establishes a KISS protocol over TCPIP socket interface on port 7373
 *configures Dire Wolf to run at boot (via Pi menu "autostart" functionality, not ideal)
+
+# Goals
+
+The goal is to build an easy to use installer and quasi configuration utility for the Dire Wolf sound modem on a Raspberry Pi.  Presently, the best way to get the amazing Dire Wolf sound modem to work on a Raspberry Pi is to build it from source code.  Additional steps are necessary to ensure the proper Debian package dependencies are installed prior to compilation.  Once Dire Wolf installation is complete, the configuration file must be properly edited before the application will operate.
+
+This installation script justs asks for your callsign an then does the rest.  This is just the first iteration of this script.  I would like to implement a more robust way of runing Dire Wolf as a service so as not to be dependent on the Raspbian GUI.  Ideally this will run equally well on Raspbian Lite.  I plan to implement a command line switch or possibly just script logic to to a standard install under Raspbian or a more streamlined install under Raspbian Lite.
 
 # Prerequisites
 
@@ -53,13 +59,10 @@ From here you will want to navigate to the newly created local repository:
 cd git/k7ctc/direwolf
 ```
 
-
-
-You will need to obtain the 
-
+And simply run the installation script:
 
 ```bash
-./direwolf_setup.sh
+./install.sh
 ```
 
 Follow the instructions provided by the setup script.
