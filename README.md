@@ -82,7 +82,7 @@ To save and exit you will first press CTRL+O then ENTER (this saves the file), t
 First things first, you will want to clone this repository to your Pi.  This can be accomplished by opening a new terminal window and entering:
 
 ```bash
-cd ~
+cd /home/pi
 git clone https://github.com/k7ctc/direwolf git/k7ctc/direwolf
 ```
 
