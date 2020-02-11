@@ -30,6 +30,13 @@ The goal is to build an easy to use installer and quasi configuration utility fo
 
 This installation script justs asks for your callsign an then does the rest.  This is just the first iteration of this script.  I would like to implement a more robust way of runing Dire Wolf as a service so as not to be dependent on the Raspbian GUI.  Ideally this will run equally well on Raspbian Lite.  I plan to implement a command line switch or possibly just script logic to to a standard install under Raspbian or a more streamlined install under Raspbian Lite.
 
+# Required Hardware
+
+* Raspberry Pi 3 B+ or Raspberry Pi 4
+* microSD card
+* USB Audio Adapter
+* USB to Serial adapter
+
 # Prerequisites
 
 You will of course need a Raspberry Pi.  Additionally, you will need a micro SD card loaded with 2020-02-05-raspbian-buster.img which can be obtained [here](http://downloads.raspberrypi.org/raspbian/images/raspbian-2020-02-07/2020-02-05-raspbian-buster.zip).  Please be sure to complete the following steps before continuing:
