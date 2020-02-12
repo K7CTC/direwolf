@@ -7,7 +7,7 @@
 ################################################################################
 
 #global variables
-VERSION="v1.0"
+VERSION="v1.1"
 TITLE="Dire Wolf Installer by K7CTC"
 BACKTITLE="Raspberry Pi Dire Wolf Sound Modem Setup Script $VERSION"
 CALLSIGN="N0CAL"
@@ -35,6 +35,12 @@ then
         echo
         exit 1
     fi
+elif [ $# -gt 1 ]
+then
+    echo "ERROR: Invalid command syntax. Unexpected number of arguments."
+    echo "USAGE: ./install [optional callsign]"
+    echo
+    exit 1
 fi
 
 #check to make sure user has not executed the script via sudo
@@ -188,5 +194,7 @@ echo "shortcut on your desktop and the application will load automatically"
 echo "on subsequent boots.  Please note, you must attach the USB audio adapter"
 echo "and USB to serial adapter in the correct ports prior to next boot or"
 echo "Dire Wolf will exit upon launch.  It is recommended that you shut down"
-echo "the Pi at this time."
+echo "the Pi at this time with the command:"
+echo
+echo "shutdown now"
 echo
