@@ -75,7 +75,7 @@ Then, modify this line to read...
 dtparam=audio=off
 ```
 
-To save and exit you will first press **ctrl+o** then **enter** (saves changes), then press **ctrl+x** to exit.  Next, you will need to shutdown and power cycle the pi.  Enter the following command and wait for the green led to stop blinking before power cycling the Pi:
+To save and exit you will first press **ctrl+o** then **enter** (saves changes), then press **ctrl+x** to exit.  Next, you will need to shutdown and power cycle the Pi.  Enter the following command and wait for the green led to stop blinking before power cycling the Pi:
 
 ```bash
 shutdown now
