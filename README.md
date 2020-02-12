@@ -48,7 +48,7 @@ This is just the first iteration of this script.  I would like to implement a mo
 
 ## Prerequisites
 
-You will of course need a Raspberry Pi.  Additionally, you will need a micro SD card loaded with 2020-02-05-raspbian-buster.img which can be obtained [here](http://downloads.raspberrypi.org/raspbian/images/raspbian-2020-02-07/2020-02-05-raspbian-buster.zip).  Please be sure to complete the following steps before continuing:
+You will of course need a Raspberry Pi.  Additionally, you will need a micro SD card loaded with 2020-02-05-raspbian-buster.img which can be obtained [here](http://downloads.raspberrypi.org/raspbian/images/raspbian-2020-02-07/2020-02-05-raspbian-buster.zip).  I highly recommend [belenaEtcher](https://www.balena.io/etcher) for flashing the image to your microSD card.  Please be sure to complete the following steps before continuing:
 
 * Connect your Pi to a wired or wireless network.
 * Complete the Welcome to Raspberry Pi wizzard (uncluding installation of available updates).
@@ -75,7 +75,13 @@ Then, modify this line to read...
 dtparam=audio=off
 ```
 
-To save and exit you will first press CTRL+O then ENTER (this saves the file), then press CTRL-X to exit.  Next, you will need to shutdown and power cycle the pi.  When the Pi boots back up you will notice the speaker icon in the menu bar now has an "X" over it.
+To save and exit you will first press **ctrl+o** then **enter** (saves changes), then press **ctrl+x** to exit.  Next, you will need to shutdown and power cycle the pi.  Enter the following command and wait for the green led to stop blinking before power cycling the Pi:
+
+```bash
+shutdown now
+```
+
+When the Pi boots back up you will notice the speaker icon in the menu bar now has an "X" over it.
 
 ## Installation
 
