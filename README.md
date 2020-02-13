@@ -26,6 +26,10 @@ What it does:
   * establishes a KISS protocol over TCPIP socket interface on port 7373
 * configures Dire Wolf to run at boot (via Pi menu "autostart" functionality, not ideal)
 
+## Video Tutorial
+
+I have created a video tutorial that walks through everything in this readme and concludes with a fully operational Dire Wolf installation.  You can watch this video on YouTube [here](https://youtu.be/A-pjMrAh51Y).
+
 ## Goals
 
 The goal is to build an easy to use installer/configuration utility for the Dire Wolf sound modem on a Raspberry Pi.  Presently, the best way to get the amazing Dire Wolf sound modem to work on a Raspberry Pi is to build it from source code.  Additional steps are necessary to ensure the proper Debian package dependencies are installed prior to compilation.  Once Dire Wolf installation is complete, the configuration file must be properly edited before the application will operate.  This installation script sidesteps all of that by simply asking your callsign and then taking care of the rest.
@@ -116,7 +120,7 @@ Alternatively you can simply run the installation script without the command lin
 If install.sh refuses to execute, you may need to modify the file permissions to allow for execution.  This is accomplished using the [chmod](https://en.wikipedia.org/wiki/Chmod) with the following command:
 
 ```bash
-chmod +x ./piers_setup.sh
+chmod +x ./install.sh
 ```
 
 Simply follow the instructions provided by the setup script.
