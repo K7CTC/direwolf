@@ -34,8 +34,7 @@ This is just the first iteration of this script.  I would like to implement a mo
 
 ## Required Hardware
 
-* Raspberry Pi 3 B+ or Raspberry Pi 4
-* microSD card
+* Raspberry Pi 3 B+ or Raspberry Pi 4 & microSD card
 * Transceiver Interface (audio & PTT)
 
 ## Recommended Hardware
@@ -53,7 +52,7 @@ Once you have gathered your hardware you will need to load you microSD card with
 * Connect your Pi to a wired or wireless network.
 * Complete the Welcome to Raspberry Pi wizzard (uncluding installation of available updates).
 * Disable the on-board audio chip.
-* Shutdown and power cycle the Pi.
+* Reboot the Pi.
 
 ### Disable On-Board Audio
 
@@ -75,13 +74,7 @@ Then, modify this line to read...
 dtparam=audio=off
 ```
 
-To save and exit you will first press **ctrl+o** then **enter** (saves changes), then press **ctrl+x** to exit.  Next, you will need to shutdown and power cycle the Pi.  Enter the following command and wait for the green led to stop blinking before power cycling the Pi:
-
-```bash
-shutdown now
-```
-
-When the Pi boots back up you will notice the speaker icon in the menu bar now has an "X" over it.
+To save and exit you will first press **ctrl+o** then **enter** (saves changes), then press **ctrl+x** to exit.  Next, you will need to shutdown and power cycle the Pi.  When the Pi boots back up you will notice the speaker icon in the menu bar now has an "X" over it indicating that no audio device is present on the system.
 
 ## Installation
 
@@ -120,13 +113,7 @@ Alternatively you can simply run the installation script without the command lin
 ./install.sh
 ```
 
-If direwolf-setup.sh refuses to execute, you may need to modify the file permissions to allow for execution.  This is accomplished using the [chmod](https://en.wikipedia.org/wiki/Chmod) with either of the following commands:
-
-```bash
-chmod 755 ./piers_setup.sh
-```
-
-or
+If install.sh refuses to execute, you may need to modify the file permissions to allow for execution.  This is accomplished using the [chmod](https://en.wikipedia.org/wiki/Chmod) with the following command:
 
 ```bash
 chmod +x ./piers_setup.sh
