@@ -42,9 +42,9 @@ This is just the first iteration of this script.  I would like to implement a mo
 
 * [TigerTronics SignaLink USB](https://www.tigertronics.com)
 * [Plugable USB Audio Adapter](https://plugable.com/products/usb-audio)
-* [GearMo 12" USB to RS232 Serial Adapter FTDI Chip 920K w/LED](https://www.gearmo.com/shop/12-inch-usb-to-rs232-serial-adapter-ftdi-chip)
+* [GearMo 12" USB to RS232 Serial Adapter FTDI Chip](https://www.gearmo.com/shop/12-inch-usb-to-rs232-serial-adapter-ftdi-chip)
 * [Tera Grand USB to RS232 Serial Adapter FTDI Chip](https://www.amazon.com/gp/product/B00BUZ0K68/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
-* [SanDisk Ultra 32GB microSD Card](https://www.amazon.com/gp/product/B073JWXGNT/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
+* [SanDisk Ultra microSD Card](https://www.amazon.com/gp/product/B073JWXGNT/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
 
 ## Prerequisites
 
