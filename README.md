@@ -36,19 +36,19 @@ This is just the first iteration of this script.  I would like to implement a mo
 
 * Raspberry Pi 3 B+ or Raspberry Pi 4
 * microSD card
-* USB Audio Adapter
-* USB to Serial adapter
+* Transceiver Interface (audio & PTT)
 
 ## Recommended Hardware
 
+* [TigerTronics SignaLink USB](https://www.tigertronics.com)
 * [Plugable USB Audio Adapter](https://plugable.com/products/usb-audio)
-* [GearMo 12" USB to RS232 Serial Adapter FTDI Chip 920K w/LED](https://www.gearmo.com/shop/12-inch-usb-to-rs232-serial-adapter-ftdi-chip/)
+* [GearMo 12" USB to RS232 Serial Adapter FTDI Chip 920K w/LED](https://www.gearmo.com/shop/12-inch-usb-to-rs232-serial-adapter-ftdi-chip)
 * [Tera Grand USB to RS232 Serial Adapter FTDI Chip](https://www.amazon.com/gp/product/B00BUZ0K68/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
 * [SanDisk Ultra 32GB microSD Card](https://www.amazon.com/gp/product/B073JWXGNT/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
 
 ## Prerequisites
 
-You will of course need a Raspberry Pi.  Additionally, you will need a micro SD card loaded with 2020-02-05-raspbian-buster.img which can be obtained [here](http://downloads.raspberrypi.org/raspbian/images/raspbian-2020-02-07/2020-02-05-raspbian-buster.zip).  I highly recommend [belenaEtcher](https://www.balena.io/etcher) for flashing the image to your microSD card.  Please be sure to complete the following steps before continuing:
+Once you have gathered your hardware you will need to load you microSD card with 2020-02-05-raspbian-buster.img which can be obtained [here](http://downloads.raspberrypi.org/raspbian/images/raspbian-2020-02-07/2020-02-05-raspbian-buster.zip).  I highly recommend [belenaEtcher](https://www.balena.io/etcher) for flashing the image to your microSD card.  Please be sure to complete the following steps before continuing:
 
 * Connect your Pi to a wired or wireless network.
 * Complete the Welcome to Raspberry Pi wizzard (uncluding installation of available updates).
@@ -170,7 +170,7 @@ This project is licensed under the MIT License - see [LICENSE.md](LICENSE.md) fo
 
 ## Todo
 
-* add command line argument to specify graphical (Raspbian) or non-graphical (Raspbian Lite) installation.
+* add logic to automatically perform a graphical (Raspbian) or non-graphical (Raspbian Lite) installation.
 * ~~add optional command line argument to pass amateur callsign into the script, thus making it a non-interactive install.~~
 * figure out how to configure Dire Wolf to run automatically at boot as a background service.
 * preferably one that can be monitored and restarted if, let's say, it crashes.
