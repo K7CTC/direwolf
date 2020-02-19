@@ -7,7 +7,7 @@
 ################################################################################
 
 #global variables
-VERSION="v1.1"
+VERSION="v1.2"
 TITLE="Dire Wolf Installer by K7CTC"
 BACKTITLE="Raspberry Pi Dire Wolf Sound Modem Setup Script $VERSION"
 CALLSIGN="N0CAL"
@@ -47,6 +47,24 @@ fi
 if [ "`whoami`" = "root" ]
 then
     echo "Script cannot be run as root. Try './install.sh'"
+    exit 1
+fi
+
+#check connectivity to raspberrypi.org (we'll need this server to obtain required packages)
+ping raspberrypi.org -c 1
+if [ $? != 0 ]
+then
+    echo "Unable to communicate with raspberrypi.org at this time.  Check your network"
+    echo "connection and try again."
+    exit 1
+fi
+
+#check connectivity to github.com (we'll need this server to obtain Dire Wolf source)
+ping github.com -c 1
+if [ $? != 0 ]
+then
+    echo "Unable to communicate with github.com at this time.  Check your network"
+    echo "connection and try again."
     exit 1
 fi
 
