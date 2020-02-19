@@ -1,6 +1,6 @@
 # Dire Wolf Sound Modem Raspberry Pi Installation Script
 
-This script automates the process of getting the Dire Wolf sound modem up and running on a Raspberry Pi.  It will only work with the standard Raspbian Buster image (2020-02-05) but the plan is to make it work with the Raspbian Lite image as well.
+This script automates the process of getting the Dire Wolf sound modem up and running on a Raspberry Pi.  It will only work with the standard Raspbian Buster image (2020-02-13) but the plan is to make it work with the Raspbian Lite image as well.
 
 What it does:
 
@@ -51,7 +51,7 @@ This is just the first iteration of this script.  I would like to implement a mo
 
 ## Prerequisites
 
-Once you have gathered your hardware you will need to load you microSD card with 2020-02-05-raspbian-buster.img which can be obtained [here](http://downloads.raspberrypi.org/raspbian/images/raspbian-2020-02-07/2020-02-05-raspbian-buster.zip).  I highly recommend [belenaEtcher](https://www.balena.io/etcher) for flashing the image to your microSD card.  Please be sure to complete the following steps before continuing:
+Once you have gathered your hardware you will need to load you microSD card with 2020-02-13-raspbian-buster.img which can be obtained [here](https://downloads.raspberrypi.org/raspbian/images/raspbian-2020-02-14/2020-02-13-raspbian-buster.zip).  I highly recommend [belenaEtcher](https://www.balena.io/etcher) for flashing the image to your microSD card.  Please be sure to complete the following steps before continuing:
 
 * Connect your Pi to a wired or wireless network.
 * Complete the Welcome to Raspberry Pi wizzard (uncluding installation of available updates).
