@@ -13,7 +13,7 @@ What it does:
 * compiles Dire Wolf from source
 * installs Dire Wolf
 * checks out the stable branch (currently v1.5)
-* installs Raspberry Pi specific files
+* installs Raspberry Pi specific configuration files
 * writes out a basic configuration file
   * assumes one sound interface exists and defaults to it (external usb audio adapter)
   * sets number of audio channels equal to 1
@@ -24,7 +24,7 @@ What it does:
   * sets the FIX_BITS value equal to 1 (see Dire Wolf documentation)
   * establishes an AGWPE TCPIP socket interface on port 9292
   * establishes a KISS protocol over TCPIP socket interface on port 7373
-* configures Dire Wolf to run at boot (via Pi menu "autostart" functionality, not ideal)
+* configures Dire Wolf to run at boot (via Pi menu "autostart" functionality)
 
 ## Video Tutorial
 
@@ -85,14 +85,13 @@ To save and exit you will first press **ctrl+o** then **enter** (saves changes),
 First things first, you will want to clone this repository to your Pi.  This can be accomplished by opening a new terminal window and entering:
 
 ```bash
-cd /home/pi
-git clone https://github.com/k7ctc/direwolf git/k7ctc/direwolf
+git clone https://github.com/k7ctc/direwolf /home/pi/git/k7ctc/direwolf
 ```
 
 From here you will want to navigate to the newly created local repository:
 
 ```bash
-cd git/k7ctc/direwolf
+cd /home/pi/git/k7ctc/direwolf
 ```
 
 Now you can run install.sh in one of two ways.  The first (and preferable) option is to specify your callsign via command line argument.  The script will "validate" your input as a North American callsign with or without SSID.

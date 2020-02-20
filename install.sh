@@ -7,7 +7,7 @@
 ################################################################################
 
 #global variables
-VERSION="v1.2"
+VERSION="v1.3"
 TITLE="Dire Wolf Installer by K7CTC"
 BACKTITLE="Raspberry Pi Dire Wolf Sound Modem Setup Script $VERSION"
 CALLSIGN="N0CAL"
@@ -107,7 +107,7 @@ fi
 #clear terminal window
 clear
 echo "Dire Wolf Sound Modem Installation Script by Chris Clement (K7CTC) $VERSION"
-echo "----------------------------------------------------------------------------"
+echo "-----------------------------------------------------------------------"
 
 echo
 echo "---------------"
@@ -120,8 +120,7 @@ echo
 echo "---------------"
 echo "Cloning Dire Wolf git repository to /home/pi/git/wb2osz/direwolf, please wait..."
 echo "---------------"
-cd /home/pi
-git clone https://github.com/wb2osz/direwolf git/wb2osz/direwolf
+git clone https://github.com/wb2osz/direwolf /home/pi/git/wb2osz/direwolf
 cd /home/pi/git/wb2osz/direwolf
 
 echo
@@ -134,7 +133,7 @@ git checkout dev
 echo
 echo
 echo "---------------"
-echo "Compiling Dire Wolf sound modem, please wait..."
+echo "Compiling Dire Wolf, please wait..."
 echo "---------------"
 mkdir build && cd build
 cmake ..
@@ -143,7 +142,7 @@ make
 echo
 echo
 echo "---------------"
-echo "Installing Dire Wolf sound modem, please wait..."
+echo "Installing Dire Wolf, please wait..."
 echo "---------------"
 sudo make install
 
@@ -216,3 +215,4 @@ echo "the Pi at this time with the command:"
 echo
 echo "shutdown now"
 echo
+exit 0
