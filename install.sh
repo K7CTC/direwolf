@@ -1,13 +1,15 @@
 #!/bin/bash
 
 ################################################################################
-#       TITLE: Dire Wolf Sound Modem Installation Script                       #
-#   DEVELOPER: Chris Clement (K7CTC)                                           #
-# DESCRIPTION: Configures a Raspberry Pi for use with Dire Wolf.               #
+#                                                                              #
+#          TITLE: Dire Wolf Sound Modem Installation Script                    #
+#   DEVELOPED BY: Chris Clement (K7CTC)                                        #
+#    DESCRIPTION: Configures a Raspberry Pi for use with Dire Wolf.            #
+#                                                                              #
 ################################################################################
 
 #global variables
-VERSION="v1.3"
+VERSION="v1.4"
 TITLE="Dire Wolf Installer by K7CTC"
 BACKTITLE="Raspberry Pi Dire Wolf Sound Modem Setup Script $VERSION"
 CALLSIGN="N0CAL"
@@ -38,7 +40,7 @@ then
 elif [ $# -gt 1 ]
 then
     echo "ERROR: Invalid command syntax. Unexpected number of arguments."
-    echo "USAGE: ./install [optional callsign]"
+    echo "USAGE: ./install.sh [optional callsign]"
     echo
     exit 1
 fi
@@ -108,6 +110,18 @@ fi
 clear
 echo "Dire Wolf Sound Modem Installation Script by Chris Clement (K7CTC) $VERSION"
 echo "-----------------------------------------------------------------------"
+
+echo
+echo "---------------"
+echo "Updating list of available packages, please wait..."
+echo "---------------"
+sudo apt-get update
+
+echo
+echo "---------------"
+echo "Applying latest patches..."
+echo "---------------"
+sudo apt-get full-upgrade -y
 
 echo
 echo "---------------"
